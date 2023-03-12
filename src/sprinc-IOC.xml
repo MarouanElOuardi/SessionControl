@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dao" class="Marouan.SessionControl.Dao.daoVolatile.SessionDao"/>
+    <bean id="metier" class="Marouan.SessionControl.Metier.SessionMetier">
+        <property name="sessionDao" ref="dao"/>
+    </bean>
+    <bean id="controller" class="Marouan.SessionControl.Presentation.SessionControleur">
+        <property name="SessionMetier" ref="metier"/>
+    </bean>
+</beans>
